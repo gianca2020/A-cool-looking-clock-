@@ -1,5 +1,5 @@
 # A-cool-looking-clock-
-Dude, its a cool looking clock 
+Dude, it's a cool looking clock 
 
 ## Features
 - Analog clock with smooth animated hands

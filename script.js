@@ -1,3 +1,10 @@
+// Cache DOM elements
+const secondHand = document.querySelector('.second-hand');
+const minuteHand = document.querySelector('.minute-hand');
+const hourHand = document.querySelector('.hour-hand');
+const timeDisplay = document.getElementById('time');
+const dateDisplay = document.getElementById('date');
+
 function updateClock() {
     const now = new Date();
     
@@ -12,10 +19,6 @@ function updateClock() {
     const hourAngle = ((hours % 12) / 12) * 360 + ((minutes / 60) * 30) + 90;
     
     // Apply rotations to clock hands
-    const secondHand = document.querySelector('.second-hand');
-    const minuteHand = document.querySelector('.minute-hand');
-    const hourHand = document.querySelector('.hour-hand');
-    
     secondHand.style.transform = `rotate(${secondAngle}deg)`;
     minuteHand.style.transform = `rotate(${minuteAngle}deg)`;
     hourHand.style.transform = `rotate(${hourAngle}deg)`;
@@ -27,7 +30,7 @@ function updateClock() {
         second: '2-digit',
         hour12: true
     });
-    document.getElementById('time').textContent = timeString;
+    timeDisplay.textContent = timeString;
     
     // Update date
     const dateString = now.toLocaleDateString('en-US', {
@@ -36,7 +39,7 @@ function updateClock() {
         month: 'long',
         day: 'numeric'
     });
-    document.getElementById('date').textContent = dateString;
+    dateDisplay.textContent = dateString;
 }
 
 // Initialize clock
