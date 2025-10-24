@@ -1,9 +1,18 @@
-// Cache DOM elements
-const secondHand = document.querySelector('.second-hand');
-const minuteHand = document.querySelector('.minute-hand');
-const hourHand = document.querySelector('.hour-hand');
-const timeDisplay = document.getElementById('time');
-const dateDisplay = document.getElementById('date');
+// Initialize and cache DOM elements after DOM is ready
+let secondHand, minuteHand, hourHand, timeDisplay, dateDisplay;
+
+function initializeClock() {
+    // Cache DOM elements
+    secondHand = document.querySelector('.second-hand');
+    minuteHand = document.querySelector('.minute-hand');
+    hourHand = document.querySelector('.hour-hand');
+    timeDisplay = document.getElementById('time');
+    dateDisplay = document.getElementById('date');
+    
+    // Start the clock
+    updateClock();
+    setInterval(updateClock, 1000);
+}
 
 function updateClock() {
     const now = new Date();
@@ -42,8 +51,5 @@ function updateClock() {
     dateDisplay.textContent = dateString;
 }
 
-// Initialize clock
-updateClock();
-
-// Update every second
-setInterval(updateClock, 1000);
+// Initialize when script loads (elements already exist since script is at end of body)
+initializeClock();
