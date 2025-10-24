@@ -51,5 +51,10 @@ function updateClock() {
     dateDisplay.textContent = dateString;
 }
 
-// Initialize when script loads (elements already exist since script is at end of body)
-initializeClock();
+// Initialize when DOM is fully loaded
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializeClock);
+} else {
+    // DOM is already loaded
+    initializeClock();
+}
